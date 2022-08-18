@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Juego2/Menus/MenuPausa.gd" type="Script" id=1]
+[ext_resource path="res://Juego2/Niveles/Nivel.gd" type="Script" id=2]
+[ext_resource path="res://Juego2/Interfaz/HUD.gd" type="Script" id=4]
+[ext_resource path="res://Recursos/Background/bg_layer2.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Background/bg_layer4.png" type="Texture" id=6]
+[ext_resource path="res://Recursos/Background/bg_layer1.png" type="Texture" id=7]
+[ext_resource path="res://Recursos/Background/bg_layer3.png" type="Texture" id=8]
+[ext_resource path="res://Juego2/Interfaz/HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Juego2/Menus/MenuPausa.tscn" type="PackedScene" id=12]
+
+[node name="NivelBase" type="Node"]
+script = ExtResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, -350 )
+transform = Transform2D( 1, 0, 0, 1, 0, -350 )
+
+[node name="ParallaxFondo" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesLejanas"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesMedias" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesMedias"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesCercanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesCercanas"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CapaFrente" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CapaFrente" instance=ExtResource( 9 )]
+modulate = Color( 0.933594, 1, 0.954865, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.10352e-05
+margin_top = 2.82843
+margin_bottom = 2.82843
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 167.899 ],
+"_edit_use_anchors_": false
+}
+
+[node name="MenuPausa" type="Control" parent="CapaFrente" instance=ExtResource( 12 )]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemigos" type="Node" parent="."]
+
+[node name="PlataformasNormales" type="Node" parent="."]
+
+[node name="PlataformasCortas" type="Node" parent="."]
+
+[node name="PlataformasLargas" type="Node" parent="."]
+
+[node name="PlataformasMuyLargas" type="Node" parent="."]
+
+[node name="Rayos" type="Node2D" parent="."]
+
+[node name="Zanahorias" type="Node2D" parent="."]
+
+[node name="Monedas" type="Node" parent="."]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Juego2/Plataformas/Plataforma.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Recursos/Environment/ground_grass_small.png" type="Texture" id=2]
+
+
+
+[node name="PlataformaCorta" instance=ExtResource( 1 )]
+position = Vector2( 398.121, 226.414 )
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 1.80089, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -148.256, -49.876, 179.323, -47.7761, 180.373, -36.7519, 180.373, -16.8031, 145.2, 36.2186, 129.451, 49.3428, -133.032, 40.9433, -145.632, 36.7436, -152.981, 25.7192, -166.105, 1.5708, -176.08, -16.8031, -178.705, -23.1027, -179.229, -32.0272, -177.13, -38.3267, -177.13, -48.3011 )

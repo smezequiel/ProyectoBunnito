@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Recursos/Particles/lighting_blue.png" type="Texture" id=1]
+[ext_resource path="res://Recursos/Particles/lighting_yellow.png" type="Texture" id=2]
+[ext_resource path="res://Juego2/Objetos/Rayo.gd" type="Script" id=3]
+
+
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "moverse",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.891, 53.868 )
+
+[node name="Rayo" type="Area2D"]
+scale = Vector2( 0.6, 0.6 )
+z_index = 34
+z_as_relative = false
+collision_layer = 32
+collision_mask = 6
+script = ExtResource( 3 )
+
+[node name="Animacion" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "moverse"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 3.3371, 1.11237 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+position = Vector2( 1.79745, 5.68321 )
+scale = Vector2( 1.38908, 1.32411 )
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

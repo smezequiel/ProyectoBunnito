@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Juego2/Menus/Botones/BotonSalida.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego2/Menus/MenuPausa.gd" type="Script" id=2]
+[ext_resource path="res://Juego2/Menus/Botones/BotonMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego2/Menus/Botones/BotonSalida.gd" type="Script" id=4]
+
+[node name="MenuPausa" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.109804, 0.101961, 0.101961, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 0.247059, 0.901961, 0.933333, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.5
+margin_top = -153.5
+margin_right = 145.5
+margin_bottom = 153.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.5
+margin_top = -72.0
+margin_right = 83.5
+margin_bottom = 72.0
+custom_constants/separation = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonContinuar" parent="Panel/VBoxContainer" instance=ExtResource( 3 )]
+
+[node name="BotonMenuPrincipal" parent="Panel/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 46.0
+margin_bottom = 80.0
+text = "MENU principal"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+margin_top = 92.0
+margin_right = 167.0
+margin_bottom = 96.0
+
+[node name="BotonSalida" parent="Panel/VBoxContainer" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+[connection signal="pressed" from="Panel/VBoxContainer/BotonContinuar" to="." method="_on_BotonContinuar_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BotonSalida" to="Panel/VBoxContainer/BotonSalida" method="_on_pressed"]
